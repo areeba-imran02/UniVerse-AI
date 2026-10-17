@@ -16,7 +16,7 @@ Discipline: {discipline}
 Task type: {task_type}
 User request: {prompt}{extra}
 Answer the exact request clearly with useful detail. Do not invent facts; state uncertainty. For medical education, provide learning simulation only, not diagnosis or treatment for a real patient. If code is requested, format it as a code block."""
-            response=client.models.generate_content(model="gemini-2.5-flash",contents=content)
+            response=client.models.generate_content(model="gemini-3.8-flash",contents=content)
             answer=getattr(response,"text",None) or "The model returned an empty response. Please retry."
             return {"answer":answer,"provider":"Gemini 2.5 Flash","mode":"model","discipline":discipline,"task_type":task_type,"stages":stages,"limitations":[]}
         except Exception as e:
